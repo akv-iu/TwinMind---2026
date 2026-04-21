@@ -33,10 +33,10 @@ The shell of the application: a desktop-first, full-viewport, 3-column CSS Grid 
 
 ## Open Questions
 
-- What is the minimum supported viewport width — 1024px, 1280px, or 1440px?
-- Below the minimum, show a "please use a wider window" notice, force horizontal scroll, or let it degrade?
-- Any header/footer (brand, record toggle, settings) that should sit outside the grid, or does the grid take the full viewport?
-- Should column widths be equal forever, or does one panel deserve more horizontal space (e.g. chat wider than suggestions)?
+- What is the minimum supported viewport width — 1024px, 1280px, or 1440px? 1280px
+- Below the minimum, show a "please use a wider window" notice, force horizontal scroll, or let it degrade? show comment.
+- Any header/footer (brand, record toggle, settings) that should sit outside the grid, or does the grid take the full viewport? Grid takes full viewport
+- Should column widths be equal forever, or does one panel deserve more horizontal space (e.g. chat wider than suggestions)? Equal
 
 ## Testing Guidelines
 

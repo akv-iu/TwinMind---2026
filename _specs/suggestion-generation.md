@@ -50,11 +50,11 @@ Every ~30 seconds, read the most recent window of finalized transcript and ask t
 
 ## Open Questions
 
-- Target end-to-end suggestion latency budget (e.g. < 5s)?
-- Pre-first-batch empty state wording — "Listening…", "Generating suggestions…", or something else?
-- Cap `suggestionBatches` to the most recent N (e.g. 10) to bound memory, or let it grow for the session?
-- Should the 30s cadence be user-configurable, or fixed?
-- If the guard chain rejects for 3 consecutive cycles, should the panel surface a subtle hint (e.g. "speak for 30+ seconds to get suggestions")?
+- Target end-to-end suggestion latency budget (e.g. < 5s)? under 5s
+- Pre-first-batch empty state wording — "Listening…", "Generating suggestions…", or something else? Not required.
+- Cap `suggestionBatches` to the most recent N (e.g. 10) to bound memory, or let it grow for the session? 10 most recent
+- Should the 30s cadence be user-configurable, or fixed? Fixed
+- If the guard chain rejects for 3 consecutive cycles, should the panel surface a subtle hint (e.g. "speak for 30+ seconds to get suggestions")? Yes add hint
 
 ## Testing Guidelines
 

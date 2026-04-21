@@ -39,13 +39,13 @@ Deploy the application to Vercel with `GROQ_API_KEY` configured as a server-only
 
 ## Open Questions
 
-- **Plan tier.** Hobby (10s cap) vs Pro (60s cap) — Pro is almost certainly required for streaming chat; confirm.
-- **Custom domain** required or is the default `*.vercel.app` URL sufficient?
-- **Rate limiting / abuse protection** at the edge — needed for launch or post-launch?
-- **Observability** — Sentry, Vercel Analytics, both, or neither?
-- **Preview-deployment access** — public, password-protected, or behind Vercel auth?
-- **Separate keys per environment** — is the Groq account/plan provisioned for this?
-- **Monitoring for key leaks** — any automated scanner (GitHub secret scanning, git-secrets pre-commit, etc.)?
+- **Plan tier.** Hobby (10s cap) vs Pro (60s cap) — Pro is almost certainly required for streaming chat; confirm. - Hobby(10s )
+- **Custom domain** required or is the default `*.vercel.app` URL sufficient? Default
+- **Rate limiting / abuse protection** at the edge — needed for launch or post-launch? Rate limiting post-launch
+- **Observability** — Sentry, Vercel Analytics, both, or neither? - Vercel Analytics
+- **Preview-deployment access** — public, password-protected, or behind Vercel auth? public
+- **Separate keys per environment** — is the Groq account/plan provisioned for this? - Single Groq API key in .env.local, not committed
+- **Monitoring for key leaks** — any automated scanner (GitHub secret scanning, git-secrets pre-commit, etc.)? - GitHub secret scanning enabled. No separate keys per environment at this stage — one Groq free tier key, rotated if leaked.
 
 ## Testing Guidelines
 

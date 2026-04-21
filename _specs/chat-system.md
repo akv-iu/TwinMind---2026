@@ -44,13 +44,13 @@ On-demand deep-reasoning chat surface. Triggered two ways: the user types into t
 
 ## Open Questions
 
-- **In-flight conflict policy.** If a new user message arrives while one is streaming: queue it, cancel the in-flight stream, or block input until finalize? Pick one.
-- **Retry behavior** on error — manual retry button, automatic retry with backoff, or neither?
-- **Streaming indicator design** — blinking cursor, skeleton, or subtle progress bar?
-- **Auto-scroll policy when the user has scrolled up manually** — keep following the bottom, or pause auto-scroll until they return?
-- **Timestamp display** — on every message, on hover, or not shown?
-- **Explicit overall timeout** on the reader loop, and what value? (30s? 60s? aligned with Vercel function limit?)
-- **Non-200 UX** — surface the error in the chat stream (as a system-style message) or in a separate toast?
+- **In-flight conflict policy.** If a new user message arrives while one is streaming: queue it, cancel the in-flight stream, or block input until finalize? Pick one. - Block input until the current stream finalizes — no queue, no cancel.
+- **Retry behavior** on error — manual retry button, automatic retry with backoff, or neither? - No automatic retry — show a manual retry button on error.
+- **Streaming indicator design** — blinking cursor, skeleton, or subtle progress bar? - blinking cursor
+- **Auto-scroll policy when the user has scrolled up manually** — keep following the bottom, or pause auto-scroll until they return? - Pause auto-scroll when the user scrolls up manually, resume when they scroll back to the bottom
+- **Timestamp display** — on every message, on hover, or not shown? - No
+- **Explicit overall timeout** on the reader loop, and what value? (30s? 60s? aligned with Vercel function limit?) - 30s
+- **Non-200 UX** — surface the error in the chat stream (as a system-style message) or in a separate toast? -Surface non-200 errors as a system-style message inline in the chat — not a toast.
 
 ## Testing Guidelines
 

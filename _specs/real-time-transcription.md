@@ -40,10 +40,10 @@ Capture live microphone input via the browser-native Web Speech API (`SpeechReco
 
 ## Open Questions
 
-- Hard-code `lang: 'en-US'` or expose a language selector later?
-- On manual Stop, finalize the pending interim text or discard it?
-- Is there any session persistence requirement (refresh the page → lose transcript, or preserve?)? Master spec is silent; default to no persistence.
-- Should the Start/Stop control also surface current mic level / VAD activity as a user affordance?
+- Hard-code `lang: 'en-US'` or expose a language selector later? - hard Code
+- On manual Stop, finalize the pending interim text or discard it? - Finalize and append pending text
+- Is there any session persistence requirement (refresh the page → lose transcript, or preserve?)? Master spec is silent; default to no persistence. - No persistence
+- Should the Start/Stop control also surface current mic level / VAD activity as a user affordance? No
 
 ## Testing Guidelines
 
