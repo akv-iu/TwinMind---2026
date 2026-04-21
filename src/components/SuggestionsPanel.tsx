@@ -18,6 +18,7 @@ export function SuggestionsPanel({ className }: SuggestionsPanelProps) {
   const injectSuggestionToChat = useTwinMindStore(
     (state) => state.injectSuggestionToChat,
   );
+  const chatStatus = useTwinMindStore((state) => state.chatStatus);
 
   useEffect(() => {
     startSuggestionsEngine();
@@ -60,6 +61,7 @@ export function SuggestionsPanel({ className }: SuggestionsPanelProps) {
                     key={suggestion.id}
                     suggestion={suggestion}
                     onClick={injectSuggestionToChat}
+                    disabled={chatStatus === 'loading'}
                   />
                 ))}
               </div>

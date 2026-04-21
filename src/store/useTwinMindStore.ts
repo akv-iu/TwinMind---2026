@@ -26,6 +26,7 @@ export interface TwinMindStore {
   setSuggestionsStatus: (s: StatusFlag) => void;
   setSuggestionsHintVisible: (visible: boolean) => void;
   appendChatMessage: (msg: ChatMessage) => void;
+  setChatStatus: (status: StatusFlag) => void;
   updateStreamingMessage: (id: string, delta: string) => void;
   finalizeStreamingMessage: (id: string) => void;
   injectSuggestionToChat: (suggestion: Suggestion) => void;
@@ -67,6 +68,8 @@ export const useTwinMindStore = create<TwinMindStore>((set) => ({
     set((state) => ({
       chatMessages: [...state.chatMessages, msg],
     })),
+
+  setChatStatus: (status) => set({ chatStatus: status }),
 
   updateStreamingMessage: (id, delta) =>
     set((state) => ({

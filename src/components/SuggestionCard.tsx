@@ -3,6 +3,7 @@ import type { Suggestion } from '@/types';
 interface SuggestionCardProps {
   suggestion: Suggestion;
   onClick: (suggestion: Suggestion) => void;
+  disabled?: boolean;
 }
 
 const TYPE_STYLES: Record<Suggestion['type'], { label: string; className: string }> = {
@@ -20,14 +21,19 @@ const TYPE_STYLES: Record<Suggestion['type'], { label: string; className: string
   },
 };
 
-export function SuggestionCard({ suggestion, onClick }: SuggestionCardProps) {
+export function SuggestionCard({
+  suggestion,
+  onClick,
+  disabled = false,
+}: SuggestionCardProps) {
   const style = TYPE_STYLES[suggestion.type];
 
   return (
     <button
       type="button"
       onClick={() => onClick(suggestion)}
-      className="w-full rounded-lg border border-gray-200 bg-white p-3 text-left transition hover:bg-gray-50"
+      disabled={disabled}
+      className="w-full rounded-lg border border-gray-200 bg-white p-3 text-left transition hover:bg-gray-50 disabled:cursor-not-allowed disabled:opacity-60"
     >
       <span
         className={`inline-flex rounded-full px-2 py-1 text-xs font-medium ${style.className}`}
