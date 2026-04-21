@@ -5,6 +5,7 @@ import {
   render,
   screen,
 } from '@testing-library/react';
+import React from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { TranscriptPanel } from '@/components/TranscriptPanel';
 import { useTwinMindStore } from '@/store/useTwinMindStore';
@@ -103,7 +104,7 @@ class MockSpeechRecognition {
 }
 
 function renderPanel() {
-  render(<TranscriptPanel className="h-screen overflow-y-auto" />);
+  render(React.createElement(TranscriptPanel, { className: 'h-screen overflow-y-auto' }));
 }
 
 function startRecording() {

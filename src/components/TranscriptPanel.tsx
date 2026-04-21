@@ -51,7 +51,9 @@ export function TranscriptPanel({ className }: TranscriptPanelProps) {
   }, [setIsRecording]);
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    if (endRef.current && typeof endRef.current.scrollIntoView === 'function') {
+      endRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }
   }, [transcript.length]);
 
   const startRecording = () => {
