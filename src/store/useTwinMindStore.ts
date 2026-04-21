@@ -15,6 +15,7 @@ export interface TwinMindStore {
 
   suggestionBatches: SuggestionBatch[];
   suggestionsStatus: StatusFlag;
+  suggestionsHintVisible: boolean;
 
   chatMessages: ChatMessage[];
   chatStatus: StatusFlag;
@@ -23,6 +24,7 @@ export interface TwinMindStore {
   setIsRecording: (val: boolean) => void;
   appendSuggestionBatch: (batch: SuggestionBatch) => void;
   setSuggestionsStatus: (s: StatusFlag) => void;
+  setSuggestionsHintVisible: (visible: boolean) => void;
   appendChatMessage: (msg: ChatMessage) => void;
   updateStreamingMessage: (id: string, delta: string) => void;
   finalizeStreamingMessage: (id: string) => void;
@@ -36,6 +38,7 @@ export const useTwinMindStore = create<TwinMindStore>((set) => ({
 
   suggestionBatches: [],
   suggestionsStatus: 'idle',
+  suggestionsHintVisible: false,
 
   chatMessages: [],
   chatStatus: 'idle',
@@ -53,10 +56,12 @@ export const useTwinMindStore = create<TwinMindStore>((set) => ({
 
   appendSuggestionBatch: (batch) =>
     set((state) => ({
-      suggestionBatches: [...state.suggestionBatches, batch],
+      suggestionBatches: [...state.suggestionBatches, batch].slice(-10),
     })),
 
   setSuggestionsStatus: (s) => set({ suggestionsStatus: s }),
+  setSuggestionsHintVisible: (visible) =>
+    set({ suggestionsHintVisible: visible }),
 
   appendChatMessage: (msg) =>
     set((state) => ({
